@@ -34,7 +34,7 @@ function onSearchInput(event) {
       'beforeend', renderCountryInfo(countries));
      } else if (countries.length >= 10) {
         alertTooManyCountries();
-     } else {
+     }  else {
         refs.countryList.insertAdjacentHTML( 'beforeend',renderCountryList(countries));
     }})
   .catch(alertWrongName);
@@ -63,6 +63,8 @@ function renderCountryInfo (countries) {
 
 function alertWrongName() {
   Notiflix.Notify.failure('Oops, there is no country with that name');
+  refs.countryList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
 };
 
 function alertTooManyCountries() {
